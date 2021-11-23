@@ -6,7 +6,11 @@ export function TodoItem({todo, toggleTodo}) {
         toggleTodo(id) 
     }
     return (
-        <li><input checked={completed} type="checkbox" onChange={handleTodoClick} />
-            {task}</li>
+        <li class="list-group-item">
+            <div class="form-check form-switch">
+                <input checked={completed} onChange={handleTodoClick} class="form-check-input" type="checkbox" role="switch"/>
+                <label class="form-check-label" for="flexSwitchCheckDefault">{task}</label>
+            </div>
+        </li>
     )
 }

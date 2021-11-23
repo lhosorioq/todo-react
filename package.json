@@ -1,5 +1,6 @@
 {
   "name": "todo-react",
+  "homepage": "http://todo.osoquisi.com/",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
