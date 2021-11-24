@@ -49,12 +49,14 @@ export function App() {
         <Fragment>
             <div className="container">
                 <h2 className="text-center">
-                    Por Hacer
+                    Que Tengo Pendiente por Hacer...
                 </h2>
-                <div className="text-center">Te quedan {todos.filter((todo)=> !todo.completed).length} tareas por terminar.</div>
+                {todos.filter((todo)=> !todo.completed).length > 0 &&
+                    <div className="text-center" >Me quedan {todos.filter((todo)=> !todo.completed).length} tareas por terminar.</div>
+                }
                 <hr />
                 <div class="row">
-                    <div class="col-8">
+                    <div class="col-sm-12 col-md-12 col-lg-8">
                         <div class="input-group mb-3">
                             <input ref={todoTaskRef} type="text" placeholder="Nueva tarea" class="form-control" />
                             <button onClick={handleTodoAdd} class="btn btn-outline-secondary">+</button>
@@ -65,7 +67,7 @@ export function App() {
                             <button onClick={handleClearAll} class="btn btn-danger" type="button">Eliminar Listado de Actividades Terminadas</button>
                         </div>
                     </div>
-                    <div class="col-4">
+                    <div class="col-sm-12 col-md-12 col-lg-4">
                         <div class="alert alert-success" role="alert">
                             <p>
                                 Aplicacion Web desarrollada para aprender y mejorar los conocimientos sobre React JS.
