@@ -41,6 +41,13 @@ export function App() {
         todoTaskRef.current.value = null
     };
 
+    const enterPressed = (e) => {
+        let code = e.keyCode || e.which;
+        if ( code === 13 ) {
+            handleTodoAdd()
+        }
+    }
+
     const handleClearAll = () => {
         const newTodos = todos.filter( (todo) => !todo.completed );
         setTodos(newTodos);
@@ -58,7 +65,8 @@ export function App() {
                 <div class="row">
                     <div class="col-sm-12 col-md-12 col-lg-8">
                         <div class="input-group mb-3">
-                            <input ref={todoTaskRef} type="text" placeholder="Nueva tarea" class="form-control" />
+                            <input ref={todoTaskRef} type="text" placeholder="Nueva tarea" class="form-control"
+                                onKeyPress={enterPressed.bind(this)} />
                             <button onClick={handleTodoAdd} class="btn btn-outline-secondary">+</button>
                         </div>
                         <TodoList todos={todos} toggleTodo={toggleTodo} />
